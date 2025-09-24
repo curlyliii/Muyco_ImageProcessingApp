@@ -8,8 +8,7 @@ namespace Muyco_ImageProcessingApp
 {
     public partial class Form1 : Form
     {
-        Bitmap originalImage;
-        Bitmap imageA, imageB, resultImage;
+        Bitmap originalImage, imageA, imageB, resultImage; 
         FilterInfoCollection videoDevices;
         VideoCaptureDevice videoSource;
         string currentFilter = "None";
@@ -65,7 +64,6 @@ namespace Muyco_ImageProcessingApp
 
             Bitmap processed = ApplyFilter(originalImage, currentFilter);
             pictureBoxProcessed.Image = processed;
-            pictureBoxProcessed.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private Bitmap ApplyFilter(Bitmap source, string filter)
@@ -135,8 +133,7 @@ namespace Muyco_ImageProcessingApp
             if (openFileDialog3.ShowDialog() == DialogResult.OK)
             {
                 imageA = new Bitmap(openFileDialog3.FileName);
-                pictureBoxImageA.Image = imageA;
-                pictureBoxImageA.SizeMode = PictureBoxSizeMode.StretchImage;
+                pictureBoxImageA.Image = imageA;  
             }
         }
 
@@ -179,7 +176,6 @@ namespace Muyco_ImageProcessingApp
             }
 
             pictureBoxSubtracted.Image = resultImage;
-            pictureBoxSubtracted.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void btnStartWebcam_Click(object sender, EventArgs e)
@@ -202,7 +198,6 @@ namespace Muyco_ImageProcessingApp
             Bitmap frame = (Bitmap)eventArgs.Frame.Clone();
             Bitmap processed = ApplyFilter(frame, currentFilter);
             pictureBoxWebcam.Image = processed;
-            pictureBoxWebcam.SizeMode = PictureBoxSizeMode.StretchImage;
         }
     }
 }
